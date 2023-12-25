@@ -80,8 +80,8 @@ module ReversiMethods
   end
 
   def placeable?(board, attack_stone_color)
-    board.each_with_index do |cols, col|
-      cols.each_with_index do |cell, row|
+    board.each_with_index do |cols, row|
+      cols.each_with_index do |cell, col|
         next unless cell == BLANK_CELL
 
         position = Position.new(row, col)
