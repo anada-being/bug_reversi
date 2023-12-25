@@ -65,9 +65,11 @@ module ReversiMethods
     return false if target_pos.stone_color(board) == attack_stone_color
 
     next_pos = target_pos.next_position(direction)
-    if (next_pos.stone_color(board) == attack_stone_color) || turn(board, next_pos, attack_stone_color, direction)
-      board[target_pos.row][target_pos.col] = attack_stone_color
-      true
+    if (next_pos.stone_color(board) == attack_stone_color)  || turn(board, next_pos, attack_stone_color, direction)
+      unless board[target_pos.row][target_pos.col] == BLANK_CELL
+        board[target_pos.row][target_pos.col] = attack_stone_color
+        true
+      end
     else
       false
     end
